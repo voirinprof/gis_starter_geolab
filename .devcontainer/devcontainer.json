@@ -1,23 +1,23 @@
 {
-    "name": "Geospatial Python 3.11 Environment",
-    "image": "mcr.microsoft.com/devcontainers/python:3.11",
-    "features": {
-      "ghcr.io/devcontainers/features/python:1": {
-        "version": "3.11"
-      }
-    },
-    "updateContentCommand": "sudo apt-get update && sudo apt-get install -y libgdal-dev gdal-bin && pip install --no-cache-dir -r requirements.txt",
-    "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "ms-python.python",
-          "ms-vscode.vscode-typescript-next"
-        ],
-        "settings": {
-          "python.defaultInterpreterPath": "/usr/local/bin/python",
-          "python.analysis.autoImportCompletions": true
-        }
+  "name": "Geospatial Python 3.11 Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "updateContentCommand": "sudo apt-get update && sudo apt-get install -y libgdal-dev gdal-bin && pip install --no-cache-dir -r requirements.txt",
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.analysis.autoImportCompletions": true
       }
     }
   }
+}
