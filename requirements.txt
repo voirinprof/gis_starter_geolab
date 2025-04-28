@@ -1,0 +1,10 @@
+numpy
+rasterio
+fiona
+beautifulsoup4
+gdal
+pandas
+geopandas
+requests
+lxml
+matplotlib
