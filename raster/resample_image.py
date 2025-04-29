@@ -2,7 +2,7 @@
 __author__ = 'voirin'
 
 # on importe GDAL
-import gdal
+from osgeo import gdal
 # on déclare le fichier à rééchantillonner
 infn = r'/workspaces/gis_starter_geolab/data/alberta_2011.tiff'
 # fichier rééchantillonné

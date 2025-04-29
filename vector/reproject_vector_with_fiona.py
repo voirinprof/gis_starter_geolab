@@ -1,33 +1,56 @@
 import fiona
-
-# afficher la version de fiona
-print(fiona.__version__)
-
 import pyproj
 from shapely.geometry import shape, mapping
-from fiona.crs import from_epsg
 from shapely.ops import transform
-# Chemin vers le fichier Shapefile source
+from fiona.crs import from_epsg
+
+# Afficher la version de Fiona
+print(fiona.__version__)
+
+# Chemins des fichiers d'entrée et de sortie
 source_shapefile_path = r'/workspaces/gis_starter_geolab/data/mask_satellite.shp'
-# Spécifiez la projection cible
-target_crs = from_epsg(4326) # WGS 84 (EPSG:4326)
-# Chemin vers le fichier Shapefile cible
 target_shapefile_path = r'/workspaces/gis_starter_geolab/data/mask_satellite_4326.shp'
 
-# Ouvrez le fichier source en mode lecture
-with fiona.open(source_shapefile_path, 'r') as src:
-    # Ouvrez le fichier cible en mode écriture et spécifiez la nouvelle projection
-    with fiona.open(target_shapefile_path, 'w', 'ESRI Shapefile',
-        schema=src.schema, crs=target_crs) as dst:
-        # Utilisez pyproj pour effectuer la reprojection des géométries
-        project = pyproj.Transformer.from_crs(src.crs, target_crs, always_xy=True).transform
-        for feature in src:
-            geom = shape(feature['geometry'])
-            # Appliquez la transformation de projection
-            reprojected_geom = transform(project, geom)
-            # Écrivez l'entité dans le fichier cible
-            feature['geometry'] = mapping(shape(reprojected_geom))
+# Spécifier la projection cible
+target_crs = from_epsg(4326)  # WGS 84 (EPSG:4326)
 
-            dst.write(feature)
-            # si cette dernière ligne pose problème (sur colab), essayez plutôt :
-            # dst.write({'geometry': mapping(reprojected_geom), 'properties':feature['properties']})
+# Ouvrir le fichier source en mode lecture
+with fiona.open(source_shapefile_path, 'r') as src:
+    # Vérifier le CRS source
+    if not src.crs:
+        raise ValueError("Le fichier source n'a pas de CRS défini. Spécifiez un CRS source.")
+    src_crs = src.crs
+
+    # Créer le schéma pour le fichier de sortie (copie du schéma source)
+    schema = src.schema
+
+    # Ouvrir le fichier cible en mode écriture
+    with fiona.open(target_shapefile_path, 'w', driver='ESRI Shapefile', crs=target_crs, schema=schema) as dst:
+        # Créer un transformateur pour la reprojection
+        project = pyproj.Transformer.from_crs(src_crs, target_crs, always_xy=True).transform
+
+        # Parcourir les features
+        for feature in src:
+            try:
+                # Extraire la géométrie
+                geom = shape(feature['geometry'])
+                
+                # Vérifier la validité de la géométrie
+                if not geom.is_valid:
+                    print(f"Géométrie invalide pour feature {feature.get('id', 'unknown')}, sautée")
+                    continue
+                
+                # Reprojeter la géométrie
+                reprojected_geom = transform(project, geom)
+                
+                # Créer une nouvelle feature pour éviter la modification directe
+                new_feature = {
+                    'geometry': mapping(reprojected_geom),  # Pas de shape() ici
+                    'properties': feature['properties']
+                }
+                
+                # Écrire la nouvelle feature
+                dst.write(new_feature)
+            except Exception as e:
+                print(f"Erreur pour feature {feature.get('id', 'unknown')}: {e}")
+                continue
