@@ -106,7 +106,7 @@ def readCollect(filename, G):
     return node_start, node_end, nodes
 
 
-nodestart, nodeend, nodes = readCollect(r'../data/collect_points.shp', G)
+nodestart, nodeend, nodes = readCollect(r'/workspaces/gis_starter_geolab/data/collect_points.shp', G)
 # on peut définir deux points d'intérêt
 # sur le territoire
 # point de départ

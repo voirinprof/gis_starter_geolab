@@ -15,7 +15,7 @@ crs1 = pyproj.CRS('EPSG:4326')
 crs2 = pyproj.CRS('EPSG:3348')
 
 trans = pyproj.Transformer.from_proj(crs1, crs2, always_xy=True).transform
-# il s'agit d'un fichier avec 470 000 entités
+# il s'agit d'un fichier avec 470 000 entités (utilisez le script generate_samples.py)
 filename = r'/workspaces/gis_starter_geolab/data/sample.shp'
 
 # on souhaite connaître les entités qui se trouvent
