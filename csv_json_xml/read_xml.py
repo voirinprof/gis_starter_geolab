@@ -5,7 +5,7 @@ __author__ = 'voirin'
 from bs4 import BeautifulSoup
 # on lit le document GeoRss
 doc = BeautifulSoup(
-    open(r'../data/georss3.xml').read(), 'xml')
+    open(r'/workspaces/gis_starter_geolab/data/georss3.xml').read(), 'xml')
 
 # on va alimenter la liste avec les infos du fichier XML
 messages = []

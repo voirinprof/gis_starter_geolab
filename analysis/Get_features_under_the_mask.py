@@ -6,7 +6,7 @@ from osgeo import ogr
 
 # je déclare le chemin vers le fichier
 # il faut ajuster en fonction de votre répertoire
-shpfile = r'../data/world.shp'
+shpfile = r'/workspaces/gis_starter_geolab/data/world.shp'
 # je déclare un Pilote SHP
 driver = ogr.GetDriverByName('ESRI Shapefile')
 # # j'ouvre le fichier
@@ -15,7 +15,7 @@ datasource = driver.Open(shpfile)
 layer = datasource.GetLayer()
 
 # définition du masque
-maskfile = r'../data/mask.shp'
+maskfile = r'/workspaces/gis_starter_geolab/data/mask.shp'
 datasourceMask = driver.Open(maskfile)
 layerMask = datasourceMask.GetLayer()
 geomMask = None

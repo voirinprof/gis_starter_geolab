@@ -9,7 +9,7 @@ spatialReference = osr.SpatialReference()
 spatialReference.ImportFromEPSG(4326)
 
 # je déclare le chemin du fichier à écrire
-path=r'../data/points.shp'
+path=r'/workspaces/gis_starter_geolab/data/points.shp'
 # je déclare le driver que je veux utiliser
 driver = ogr.GetDriverByName('ESRI Shapefile')
 # je créé un datasource pour mes données

@@ -7,7 +7,7 @@ from osgeo import gdal, ogr, osr
 gdal.UseExceptions()
 
 # le fichier Raster en vectoriser
-fileName = r"../data/alberta_2011_clip.tiff"
+fileName = r"/workspaces/gis_starter_geolab/data/alberta_2011_clip.tiff"
 # on ouvre le fichier
 src_ds = gdal.Open(fileName)
 # on récupère la bande #1
@@ -19,7 +19,7 @@ dst_layername = "poly_alberta"
 # on fait un shapefile
 drv = ogr.GetDriverByName("ESRI Shapefile")
 # on va créer le fichier
-dst_ds = drv.CreateDataSource('../data/' + dst_layername + ".shp")
+dst_ds = drv.CreateDataSource('/workspaces/gis_starter_geolab/data/' + dst_layername + ".shp")
 
 # on va créer le SRS pour le fichier vectoriel à partir du SRS de l'image
 src = osr.SpatialReference()

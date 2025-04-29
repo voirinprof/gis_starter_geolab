@@ -16,7 +16,7 @@ crs2 = pyproj.CRS('EPSG:3348')
 
 trans = pyproj.Transformer.from_proj(crs1, crs2, always_xy=True).transform
 # il s'agit d'un fichier avec 470 000 entités
-filename = r'../data/sample.shp'
+filename = r'/workspaces/gis_starter_geolab/data/sample.shp'
 
 # on souhaite connaître les entités qui se trouvent
 # dans un voisinage de 1000 m des points suivants

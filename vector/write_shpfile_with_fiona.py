@@ -14,7 +14,7 @@ schema = {
     'properties': {'name': 'str'}
 }
 # on peut maintenant créer notre shapefile
-with fiona.open('../data/myshape.shp', 'w', crs=from_epsg(3857),
+with fiona.open('/workspaces/gis_starter_geolab/data/myshape.shp', 'w', crs=from_epsg(3857),
                 driver='ESRI Shapefile', schema=schema) as out:
     # on parcourt nos données
     for d in data:

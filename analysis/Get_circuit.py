@@ -7,13 +7,13 @@ import networkx as nx
 # j'importe pyplot
 import matplotlib.pyplot as plt
 # j'importe la lib
-import ogr, osr
+from osgeo import ogr, osr
 
 import itertools
 
 # je déclare le fichier à lire (ajuster le chemin selon votre machine)
 # attention votre fichier de rues doit contenir des géométries simples (non multiples)
-filename = r'../data/Segments_de_rue_singlepart.shp'
+filename = r'/workspaces/gis_starter_geolab/data/Segments_de_rue_singlepart.shp'
 # je déclare un driver SHP
 driver = ogr.GetDriverByName('ESRI Shapefile')
 # j'ouvre le fichier
@@ -168,7 +168,7 @@ def savefile(circuits):
     spatialReference.ImportFromEPSG(32187)
 
     # je déclare le chemin du fichier à écrire
-    path = r'../data/circuits4.shp'
+    path = r'/workspaces/gis_starter_geolab/data/circuits4.shp'
     # je déclare le driver que je veux utiliser
     driver = ogr.GetDriverByName('ESRI Shapefile')
     # je créé un datasource pour mes données

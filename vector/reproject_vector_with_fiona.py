@@ -8,11 +8,11 @@ from shapely.geometry import shape, mapping
 from fiona.crs import from_epsg
 from shapely.ops import transform
 # Chemin vers le fichier Shapefile source
-source_shapefile_path = r'../data/mask_satellite.shp'
+source_shapefile_path = r'/workspaces/gis_starter_geolab/data/mask_satellite.shp'
 # Spécifiez la projection cible
 target_crs = from_epsg(4326) # WGS 84 (EPSG:4326)
 # Chemin vers le fichier Shapefile cible
-target_shapefile_path = r'../data/mask_satellite_4326.shp'
+target_shapefile_path = r'/workspaces/gis_starter_geolab/data/mask_satellite_4326.shp'
 
 # Ouvrez le fichier source en mode lecture
 with fiona.open(source_shapefile_path, 'r') as src:

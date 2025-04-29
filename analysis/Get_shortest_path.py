@@ -6,10 +6,10 @@ import networkx as nx
 # j'importe pyplot
 import matplotlib.pyplot as plt
 # j'importe la lib
-import ogr
+from osgeo import ogr
 # je déclare le fichier à lire (ajuster le chemin selon votre machine)
 # attention votre fichier de rues doit contenir des géométries simples (non multiples)
-filename = r'../data/Segments_de_rue_singlepart.shp'
+filename = r'/workspaces/gis_starter_geolab/data/Segments_de_rue_singlepart.shp'
 # je déclare un driver SHP
 driver = ogr.GetDriverByName('ESRI Shapefile')
 # j'ouvre le fichier

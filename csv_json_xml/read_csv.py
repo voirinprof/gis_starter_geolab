@@ -4,7 +4,7 @@ __author__ = 'voirin'
 # j'importe CSV
 import csv
 # fichier csv à lire
-filename = r'../data/AAPL.csv'
+filename = r'/workspaces/gis_starter_geolab/data/AAPL.csv'
 # on récupère 2 infos dans le csv
 # les jours
 days = []

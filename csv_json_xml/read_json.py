@@ -5,7 +5,7 @@ __author__ = 'voirin'
 import json
 
 # on lit le fichier JSON
-json_data = open(r'../data/countries.geo.json').read()
+json_data = open(r'/workspaces/gis_starter_geolab/data/countries.geo.json').read()
 
 # on charge le contenu du fichier et on le convertit en un dictionnaire PYTHON
 data = json.loads(json_data)

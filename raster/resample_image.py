@@ -4,9 +4,9 @@ __author__ = 'voirin'
 # on importe GDAL
 import gdal
 # on déclare le fichier à rééchantillonner
-infn = r'..\data\alberta_2011.tiff'
+infn = r'/workspaces/gis_starter_geolab/data/alberta_2011.tiff'
 # fichier rééchantillonné
-outfn = r'..\data\alberta_2011_200mx200m.tiff'
+outfn = r'/workspaces/gis_starter_geolab/data/alberta_2011_200mx200m.tiff'
 
 # résolution spatiale souhaitée 200m x 200m
 xres=200

@@ -2,12 +2,13 @@
 __author__ = 'voirin'
 
 # import gdal
-import gdal, sys
-from gdalconst import *
+from osgeo import gdal
+import sys
+from osgeo.gdalconst import *
 gdal.AllRegister()
 
 # fichier à lire
-filename = r"../data/alberta_2011.tiff"
+filename = r"/workspaces/gis_starter_geolab/data/alberta_2011.tiff"
 # on ouvre le fichier
 ds = gdal.Open(filename, GA_ReadOnly)
 

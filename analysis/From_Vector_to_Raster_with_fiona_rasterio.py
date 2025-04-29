@@ -3,7 +3,7 @@ import rasterio
 from rasterio.features import geometry_mask
 from shapely.geometry import shape
 # Spécifiez le chemin vers votre fichier Shapefile
-shapefile_path = r'../data/mask_satellite.shp'
+shapefile_path = r'/workspaces/gis_starter_geolab/data/mask_satellite.shp'
 # Ouvrez le fichier Shapefile en mode lecture
 with fiona.open(shapefile_path, 'r') as shapefile:
     print(shapefile.meta)
@@ -23,7 +23,7 @@ with fiona.open(shapefile_path, 'r') as shapefile:
     mask = geometry_mask([firstshape], transform=transform, invert=True,
     out_shape=(height, width))
     # Créez un nouveau fichier raster
-    with rasterio.open(r'../data/mask_satellite.tiff', 'w', driver='GTiff', height=height,
+    with rasterio.open(r'/workspaces/gis_starter_geolab/data/mask_satellite.tiff', 'w', driver='GTiff', height=height,
         width=width, count=1, dtype='uint8', crs=shapefile.crs,
         transform=transform) as dst:
         dst.write(mask, 1)

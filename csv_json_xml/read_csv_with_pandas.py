@@ -4,7 +4,7 @@ __author__ = 'voirin'
 # j'importe pandas
 import pandas as pd
 # je lis le fichier csv
-df = pd.read_csv(r'../data/6eee0ac1-126b-4080-8f8f-dc737d81a704_Data.csv',
+df = pd.read_csv(r'/workspaces/gis_starter_geolab/data/6eee0ac1-126b-4080-8f8f-dc737d81a704_Data.csv',
                  sep=',', dtype={'Population total': float},
                  usecols=['Time','Time Code','Country Name',
                           'Country Code','Population total',

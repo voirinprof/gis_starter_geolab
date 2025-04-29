@@ -5,7 +5,7 @@ __author__ = 'voirin'
 from osgeo import ogr, osr
 # je déclare le chemin vers le fichier
 # il faut ajuster en fonction de votre répertoire
-shpfile = r'../data/world.shp'
+shpfile = r'/workspaces/gis_starter_geolab/data/world.shp'
 # je déclare un Pilote SHP
 driver = ogr.GetDriverByName('ESRI Shapefile')
 # # j'ouvre le fichier

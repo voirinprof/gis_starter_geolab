@@ -1,6 +1,6 @@
 import fiona
 # Spécifiez le chemin vers votre fichier Shapefile
-shapefile_path = r'../data/world.shp'
+shapefile_path = r'/workspaces/gis_starter_geolab/data/world.shp'
 # Ouvrez le fichier Shapefile en mode lecture
 with fiona.open(shapefile_path, 'r') as source:
     # Affichez les métadonnées du fichier

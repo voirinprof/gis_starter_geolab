@@ -15,7 +15,7 @@ rows = 50
 cols = 50
 # je déclare mon image
 # il faut : la taille, le nombre de bandes et le type de données
-image = driver.Create("../data/test.tif", cols, rows, 1, GDT_Int32)
+image = driver.Create("/workspaces/gis_starter_geolab/data/test.tif", cols, rows, 1, GDT_Int32)
 
 # je cherche la bande 1
 band = image.GetRasterBand(1)

@@ -3,14 +3,14 @@ from rasterio.features import shapes
 import fiona
 from shapely.geometry import shape, mapping
 from fiona.crs import from_string
-image_path = r'../data/mask_satellite.tiff'
+image_path = r'/workspaces/gis_starter_geolab/data/mask_satellite.tiff'
 # Ouvrez l'image raster en mode lecture
 with rasterio.open(image_path) as src:
     
     image = src.read(1) # Lisez la première bande de l'image (ou la bande souhaitée)
     # Trouvez les régions (objets) dans l'image
     image_regions = list(shapes(image, mask=None, transform=src.transform))
-    shapefile_path = r'../data/mask_satellite_convert.shp' # Spécifiez le chemin de sortie
+    shapefile_path = r'/workspaces/gis_starter_geolab/data/mask_satellite_convert.shp' # Spécifiez le chemin de sortie
     # obtenir le système de coordonnées de l'image en epsg
     crs_proj4 = src.crs.to_proj4() # Obtenez le système de coordonnées de l'image
     # Ouvrez le fichier Shapefile en mode écriture
